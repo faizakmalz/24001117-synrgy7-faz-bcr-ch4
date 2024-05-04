@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+    scroll-behavior: smooth;  }
+  
+  h1 {
+    text-decoration: none;
+  }
+  
+  .bg-primary {
+    background-color: #0D28A6;
+  }
+  
+  .bg-success {
+    background-color: #5CB85F;
+  }
+  
+  
+  #accordion-collapse {
+    background-color: white;
+    color: black;
+  }
+  
+  #accordion-collapse-heading-1 {
+    background-color: white;
+    color: black;
+  }
+  
+  #accordion-button {
+    background-color: white;
+    color: black;
+  }
+  
+
+  

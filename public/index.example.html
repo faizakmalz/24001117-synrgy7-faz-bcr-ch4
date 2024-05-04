@@ -1,27 +1,430 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="author" content="Sabrina" />
-    <meta name="description" content="Lorem ipsum dolor sit amet" />
-    <meta
-      name="viewport"
-      content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"
-    />
-    <title>Binar: Challenge 04</title>
 
-    <!-- Example CSS -->
-    <link href="./css/style.example.css" rel="stylesheet" />
-  </head>
-  <body>
-    <button id="load-btn">Load</button>
-    <button id="clear-btn">Clear</button>
-    <div id="cars-container"></div>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Challenge Chapter 4-SYNRGY</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link  rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/public/css/style.example.css" />
+</head>
 
-    <!-- Example Javascript -->
-    <script type="text/javascript" src="./scripts/binar.js"></script>
-    <script type="text/javascript" src="./scripts/app.example.js"></script>
-    <script type="text/javascript" src="./scripts/car.example.js"></script>
-    <script type="text/javascript" src="./scripts/main.example.js"></script>
-  </body>
+<body class="bg-white">
+    <section class="flex flex-col gap-5">
+        <section id="main" class="bg-[#F1F3FF]">
+            <header>
+                <nav
+                class="h-8 py-12 w-full flex items-center px-4 md:px-[136px] bg-[#F1F3FF] z-50 fixed"
+                >
+                <div class="flex justify-between flex-1">
+                    <div class="h-8 w-[100px] bg-[#0D28A6]"></div>
+                    <div class="hidden md:flex items-center">
+                        <a href="#our-service" class="text-[14px] font-normal"
+                            >Our Services</a
+                        >
+                        <a href="#why-us" class="text-[14px] font-normal ml-4">Why Us</a>
+                        <a href="#testimonials" class="text-[14px] font-normal ml-4"
+                            >Testimonial</a
+                        >
+                        <a href="#FAQ" class="text-[14px] font-normal ml-4">FAQ</a>
+                        <a
+                            href="#"
+                            class="text-[14px] font-bold ml-4 bg-[#5CB85F] text-white rounded-md flex items-center justify-center px-3 py-2"
+                            >Register</a
+                        >
+                    </div>
+                    <div
+                    class="flex duration-500 -right-full top-0 flex-col fixed bg-slate-100 px-4 py-8 gap-4 h-screen w-2/4 sidebar"
+                    >
+                        <button class="flex md:hidden w-6 h-6" id="close-sidebar">
+                            <img
+                            src="./public/images/icon/ic_burger.svg"
+                            alt="ic_burger"
+                            class="w-6 h-6"
+                            />
+                        </button>
+                        <a href="#our-service" class="text-[14px] font-normal"
+                            >Our Services</a
+                        >
+                        <a href="#why-us" class="text-[14px] font-normal">Why Us</a>
+                        <a href="#testimonials" class="text-[14px] font-normal"
+                            >Testimonial</a
+                        >
+                        <a href="#FAQ" class="text-[14px] font-normal">FAQ</a>
+                        <a
+                            href="#"
+                            class="text-[14px] font-bold bg-success text-white rounded-md flex items-center justify-center px-3 py-2"
+                            >Register</a
+                        >
+                        </div>
+                        <button class="flex md:hidden" id="open-sidebar">
+                        <img
+                            src="./public/images/icon/ic_burger.svg"
+                            alt="ic_burger"
+                            class="w-6 h-6"
+                        />
+                        </button>
+                    </div>
+                </div>
+                </nav>
+            </header>
+            <div
+            id="hero"
+            class="h-max md:h-[604px] bg-[#F1F3FF] flex flex-col md:flex-row pl-4 pr-0 md:pr-4 md:pr-0 md:pl-[136px] pt-[84px]"
+            >
+                <div id="main" class="flex flex-col w-full md:w-1/2 justify-center gap-4">
+                    <p class="font-bold text-[36px]">
+                    Sewa & Rental Mobil Terbaik di <br> Sidoarjo!
+                    </p>
+                    <p class="mr-8">
+                    Selamat datang di Binar Car Rental. Kami menyediakan mobil kualitas
+                    terbaik dengan harga terjangkau. Selalu siap melayani kebutuhanmu
+                    untuk sewa mobil selama 24 jam.
+                    </p>
+                    <a
+                    href="/cars"
+                    class="text-[14px] font-bold bg-success text-white rounded-md w-max flex items-center justify-center px-3 py-2"
+                    >Mulai Sewa Mobil</a
+                    >
+                </div>
+                <div class="static md:relative w-full md:w-1/2">
+                    <img
+                    src="./public/images/img_car2.png"
+                    alt="mercedes"
+                    class="flex md:hidden bottom-0 z-10"
+                    />
+                    <img
+                    src="./public/images/img_car2.png"
+                    alt="mercedes"
+                    class="hidden md:flex absolute bottom-0 z-10"
+                    />
+                    <div
+                    class="bg-[#0D28A6] hidden md:flex absolute h-1/2 w-full rounded-tl-[60px] bottom-0"
+                    >
+                </div>
+            </div>
+        
+        </section>
+
+        <section id="our">
+          <div class="mx-auto my-20 md:px-36 min-[320px]:px-5 ">
+              <div class="flex flex-col md:flex-row  gap-24 items-center justify-center">
+                  <img src="/public/images/img_service.png" alt="" class="flex-1  w-96" />
+                  <article class="flex flex-1 flex-col gap-6">
+                      <h2 class="text-3xl font-bold">Best Car Rental for any kind of trip in (Lokasimu)!</h2>
+                      <p class="text-sm">Sewa mobil di (Lokasimu) bersama Binar Car Rental jaminan harga lebih murah dibandingkan yang lain, kondisi mobil baru, serta kualitas pelayanan terbaik untuk perjalanan wisata, bisnis, wedding, meeting, dll.</p>
+                      <ul class="flex flex-col gap-3 text-sm list">
+                          <li class="flex gap-2"><img src="/public/images/icon/check.png" class="w-6 " alt=""> Sewa Mobil dengan Supir di Bali 12 Jam</li>
+                          <li class="flex gap-2"><img src="/public/images/icon/check.png" class="w-6" alt=""> Sewa mobil Lepas Kunci di Bali 24 Jam</li>
+                          <li class="flex gap-2"><img src="/public/images/icon/check.png" class="w-6" alt=""> Sewa Mobil Jangka Panjang Bulanan</li>
+                          <li class="flex gap-2"><img src="/public/images/icon/check.png" class="w-6" alt=""> Gratis Antar - Jemput Mobil di Bandara</li>
+                          <li class="flex gap-2"><img src="/public/images/icon/check.png" class="w-6" alt=""> Layanan Airport Transfer / Drop In Out</li>
+                      </ul>
+                  </article>
+              </div>
+          </div>
+      </section>
+      
+      <section id="whyus">
+          <div class="my-20 mx-auto md:px-24 min-[320px]:px-4">
+              <div class="mx-auto">
+                  <h2 class="font-bold text-3xl">Why Us?</h2>
+                  <p class="mb-5">Mengapa harus pilih Binar Car Rental</p>
+                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+                      <article class="p-8 border-gray-300 border-2 rounded-md">
+                          <img src="/public/images/icon/icon_complete.png" alt="" class="mb-3 w-12 h-12" />
+                          <h3 class="py-2 font-bold text-2xl">Mobil Lengkap</h3>
+                          <p>Tersedia banyak pilihan mobil, Konisi masih baru, bersih, dan terawat.</p>
+                      </article>
+                      <article class="p-8 border-gray-300 border-2 rounded-md">
+                          <img src="/public/images/icon/icon_price.png" alt="" class="mb-3 w-12 h-12" />
+                          <h3 class="py-2 font-bold text-2xl">Harga Murah</h3>
+                          <p>Harga murah dan bersaing, bisa bandingkan harga kami dengan rental mobil lain</p>
+                      </article>
+                      <article class="p-8 border-gray-300 border-2 rounded-md">
+                          <img src="/public/images/icon/icon_24hrs.png" alt="" class="mb-3 w-12 h-12" />
+                          <h3 class="py-2 font-bold text-2xl">Layanan 24 Jam</h3>
+                          <p>Siap melayani kebutuhan Anda selama 24 jam nonstop. Kami juga tersedia di akhir minggu</p>
+                      </article>
+                      <article class="p-8 border-gray-300 border-2 rounded-md">
+                          <img src="/public/images/icon/icon_professional.png" alt="" class="mb-3 w-12 h-12" />
+                          <h3 class="py-2 font-bold text-2xl">Sopir Professional</h3>
+                          <p>Sopir yang profesional, berpengalaman, jujur, ramah dan selalu tepat waktu</p>
+                      </article>
+                  </div>
+              </div>
+          </div>
+      </section>
+      
+      <section id="testimonial" class="testimonial">
+        <div class="flex flex-col gap-4">
+            <h1 class="text-center font-bold text-2xl">Testimonial</h1>
+            <p class="text-center text-sm">Berbagai review positif dari para pelanggan kami</p>   
+
+            <div id="default-carousel" class="relative min-[320px]:w-[90%] lg:w-[70%] mx-auto mt-4 flex flex-col" data-carousel="slide">
+                <!-- Carousel wrapper -->
+                <div class="relative overflow-hidden rounded-lg min-[320px]:h-[450px] md:h-[270px] mb-5">
+                    <!-- Item 1 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <div class="card col min-[320px]:gap-1 md:gap-4 mx-auto flex min-[320px]:flex-col md:flex-row bg-blue-100 md:w-[619px] min-[320px]:w-[90%] md:h-[270px] min-[320px]:h-full rounded-[8px] min-[320px]:px-0 min-[320px]:py-4 md:p-20 items-center">
+                            <!-- Testimonial 1 -->
+                            <div class="flex w-[30%] items-center justify-center">
+                                <img src="/public/images/img_photoav1.png" alt="" class="w-20 h-20" />
+                            </div>
+                    
+                            <div class="flex w-[70%] min-[320px]:text-center md:text-left items-center justify-center md:items-start flex-col gap-2">
+                                <img src="/public/images/Rate.png" alt="" class="w-20 h-4" />
+                                <p class="text-base">
+                                    “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”
+                                </p>
+                                <p class="nama font-bold">John Dee 32, Bromo</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <div class="card col min-[320px]:gap-1 md:gap-4 mx-auto flex min-[320px]:flex-col md:flex-row bg-blue-100 md:w-[619px] min-[320px]:w-[90%] md:h-[270px] min-[320px]:h-full rounded-[8px] min-[320px]:px-0 min-[320px]:py-4 md:p-20 items-center">
+                            <!-- Testimonial 1 -->
+                            <div class="flex w-[30%] items-center justify-center">
+                                <img src="/public/images/img_photoav2.png" alt="" class="w-20 h-20" />
+                            </div>
+                    
+                            <div class="flex w-[70%] min-[320px]:text-center md:text-left items-center justify-center md:items-start flex-col gap-2">
+                                <img src="/public/images/Rate.png" alt="" class="w-20 h-4" />
+                                <p class="text-base">
+                                    “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”
+                                </p>
+                                <p class="nama font-bold">John Dee 32, Bromo</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- item 3 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <div class="card col min-[320px]:gap-1 md:gap-4 mx-auto flex min-[320px]:flex-col md:flex-row bg-blue-100 md:w-[619px] min-[320px]:w-[90%] md:h-[270px] min-[320px]:h-full rounded-[8px] min-[320px]:px-0 min-[320px]:py-4 md:p-20 items-center">
+                            <!-- Testimonial 1 -->
+                            <div class="flex w-[30%] items-center justify-center">
+                                <img src="/public/images/img_photoav1.png" alt="" class="w-20 h-20" />
+                            </div>
+                    
+                            <div class="flex w-[70%] min-[320px]:text-center md:text-left items-center justify-center md:items-start flex-col gap-2">
+                                <img src="/public/images/Rate.png" alt="" class="w-20 h-4" />
+                                <p class="text-base">
+                                    “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”
+                                </p>
+                                <p class="nama font-bold">John Dee 32, Bromo</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <div class="card col min-[320px]:gap-1 md:gap-4 mx-auto flex min-[320px]:flex-col md:flex-row bg-blue-100 md:w-[619px] min-[320px]:w-[90%] md:h-[270px] min-[320px]:h-full rounded-[8px] min-[320px]:px-0 min-[320px]:py-4 md:p-20 items-center">
+                            <!-- Testimonial 1 -->
+                            <div class="flex w-[30%] items-center justify-center">
+                                <img src="/public/images/img_photoav2.png" alt="" class="w-20 h-20" />
+                            </div>
+                    
+                            <div class="flex w-[70%] min-[320px]:text-center md:text-left items-center justify-center md:items-start flex-col gap-2">
+                                <img src="/public/images/Rate.png" alt="" class="w-20 h-4" />
+                                <p class="text-base">
+                                    “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”
+                                </p>
+                                <p class="nama font-bold">John Dee 32, Bromo</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <div class="card col min-[320px]:gap-1 md:gap-4 mx-auto flex min-[320px]:flex-col md:flex-row bg-blue-100 md:w-[619px] min-[320px]:w-[90%] md:h-[270px] min-[320px]:h-full rounded-[8px] min-[320px]:px-0 min-[320px]:py-4 md:p-20 items-center">
+                            <!-- Testimonial 1 -->
+                            <div class="flex w-[30%] items-center justify-center">
+                                <img src="/public/images/img_photoav1.png" alt="" class="w-20 h-20" />
+                            </div>
+                    
+                            <div class="flex w-[70%] min-[320px]:text-center md:text-left items-center justify-center md:items-start flex-col gap-2">
+                                <img src="/public/images/Rate.png" alt="" class="w-20 h-4" />
+                                <p class="text-base">
+                                    “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”
+                                </p>
+                                <p class="nama font-bold">John Dee 32, Bromo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slider controls -->
+                <div id="carouselButtons" class="flex justify-center mb-5">
+                    <button type="button" class="flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+                        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white border-2 border-gray-200 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white  group-focus:outline-none">
+                            <svg class="w-4 h-4 text-white dark:text-black rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                            </svg>
+                            <span class="sr-only">Previous</span>
+                        </span>
+                    </button>
+                    <button type="button" class="flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+                        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-success group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white  group-focus:outline-none">
+                            <svg class="w-4 h-4 text-white rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                            </svg>
+                            <span class="sr-only">Next</span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+      </section>
+      
+      <section id="getting-started" class="getstart text-white">
+          <div class="p-5 bg-primary md:w-[70%] min-[320px]:w-[85%] mx-auto rounded-[13px]">
+              <div class="flex flex-col items-center justify-center py-5 text-center h-[326px] gap-5">
+                  <h1 class="font-bold md:text-4xl min-[320px]:text-2xl">Sewa Mobil di Sidoarjo Sekarang!</h1>
+                  <p class="font-[200] text-sm lg:px-[300px] px-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class=" mt-3 bg-success px-8 py-2 rounded-lg">Mulai Sewa Mobil</button>
+              </div>
+          </div>
+      </section>
+      
+      <section id="FAQ" class="">
+        <div class="md:flex md:mx-[200px] my-36 justify-center items-start min-[320px]:text-center md:text-left">
+            <div class="min-[320px]:px-10 md:flex-1 py-10">
+                <h2 class="font-bold text-2xl md:text-3xl">Frequently Asked Question</h2>
+                <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+            </div>      
+            <div id="accordion-collapse" data-accordion="collapse" class="md:w-[500px] mx-auto min-[320px]:w-[330px] md:flex-1">
+                <h2 id="accordion-collapse-heading-1">
+                    <button id="accordion-button" type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl gap-3" data-accordion-target="#accordion-collapse-body-1" aria-expanded="false" aria-controls="accordion-collapse-body-1">
+                        <span>Apa saja syarat yang dibutuhkan?</span>
+                        <svg  data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                        </svg> 
+                    </button>
+                </h2>
+                <div id="accordion-collapse-body-1" class="hidden" aria-labelledby="accordion-collapse-heading-1">
+                    <div class="p-5 border border-b-0 border-gray-200">
+                        <p class="mb-2 text-gray-500">Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.</p>
+                        <p class="text-gray-500">Check out this guide to learn how to <a href="/docs/getting-started/introduction/" class="text-blue-600 hover:underline">get started</a> and start developing websites even faster with components on top of Tailwind CSS.</p>
+                    </div>
+                </div>
+                <h2 id="accordion-collapse-heading-2">
+                    <button id="accordion-button" type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 gap-3" data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2">
+                        <span>Berapa hari minimal sewa mobil lepas kunci?</span>
+                        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                        </svg>
+                    </button>
+                </h2>
+                <div id="accordion-collapse-body-2" class="hidden" aria-labelledby="accordion-collapse-heading-2">
+                    <div class="p-5 border border-b-0 border-gray-200">
+                        <p class="mb-2 text-gray-500">Flowbite is first conceptualized and designed using the Figma software so everything you see in the library has a design equivalent in our Figma file.</p>
+                        <p class="text-gray-500">Check out the <a href="https://flowbite.com/figma/" class="text-blue-600 hover:underline">Figma design system</a> based on the utility classes from Tailwind CSS and components from Flowbite.</p>
+                    </div>
+                </div>
+                <h2 id="accordion-collapse-heading-4">
+                    <button id="accordion-button" type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 gap-3" data-accordion-target="#accordion-collapse-body-4" aria-expanded="false" aria-controls="accordion-collapse-body-4">
+                        <span>Apakah Ada biaya antar-jemput?</span>
+                        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                        </svg>
+                    </button>
+                </h2>
+                <div id="accordion-collapse-body-4" class="hidden" aria-labelledby="accordion-collapse-heading-2">
+                    <div class="p-5 border border-b-0 border-gray-200">
+                        <p class="mb-2 text-gray-500">Flowbite is first conceptualized and designed using the Figma software so everything you see in the library has a design equivalent in our Figma file.</p>
+                        <p class="text-gray-500">Check out the <a href="https://flowbite.com/figma/" class="text-blue-600 hover:underline">Figma design system</a> based on the utility classes from Tailwind CSS and components from Flowbite.</p>
+                    </div>
+                </div>
+                <h2 id="accordion-collapse-heading-5">
+                    <button id="accordion-button" type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 gap-3" data-accordion-target="#accordion-collapse-body-5" aria-expanded="false" aria-controls="accordion-collapse-body-5">
+                        <span>Bagaimana jika terjadi kecelakaan?</span>
+                        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                        </svg>
+                    </button>
+                </h2>
+                <div id="accordion-collapse-body-5" class="hidden" aria-labelledby="accordion-collapse-heading-2">
+                    <div class="p-5 border border-b-0 border-gray-200">
+                        <p class="mb-2 text-gray-500">Flowbite is first conceptualized and designed using the Figma software so everything you see in the library has a design equivalent in our Figma file.</p>
+                        <p class="text-gray-500">Check out the <a href="https://flowbite.com/figma/" class="text-blue-600 hover:underline">Figma design system</a> based on the utility classes from Tailwind CSS and components from Flowbite.</p>
+                    </div>
+                </div>
+                <h2 id="accordion-collapse-heading-3">
+                    <button id="accordion-button" type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 rounded-b-xl gap-3" data-accordion-target="#accordion-collapse-body-3" aria-expanded="false" aria-controls="accordion-collapse-body-3">
+                        <span>Berapa hari sebelumnya sabaiknya booking sewa mobil?</span>
+                        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+                        </svg>
+                    </button>
+                </h2>
+                <div id="accordion-collapse-body-3" class="hidden" aria-labelledby="accordion-collapse-heading-3">
+                    <div class="p-5 border border-b-0 border-gray-200">
+                        <p class="mb-2 text-gray-500">Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.</p>
+                        <p class="text-gray-500">Check out this guide to learn how to <a href="/docs/getting-started/introduction/" class="text-blue-600 hover:underline">get started</a> and start developing websites even faster with components on top of Tailwind CSS.</p>
+                    </div>
+                </div>
+            </div>
+            
+  
+        </div>
+    </section>
+    
+    <section id="footer">
+      <div class="my-24 md:px-36 min-[320px]:px-5 mx-auto">
+          <div class="md:flex-row flex min-[320px]:flex-col min-[320px]:text-left min-[320px]:gap-10 pb-5">
+              <div class="flex-1 flex flex-col gap-2" style="font-weight: 300">
+                  <p>Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000</p>
+                  <p>binarcarrental@gmail.com</p>
+                  <p>081-233-334-808</p>
+              </div>
+              <div class="flex-1 flex flex-col gap-2" style="font-weight: 400">
+                  <p>Our Services</p>
+                  <p>Why Us</p>
+                  <p>Testimonials</p>
+                  <p>FAQ</p>
+              </div>
+              <div class="flex-1 flex flex-col gap-2">
+                  <p>Connect With Us</p>
+                  <div class="flex gap-2">
+                      <img src="/public/images/icon/icon_facebook.png" alt="" />
+                      <img src="/public/images/icon/icon_instagram.png" alt="" />
+                      <img src="/public/images/icon/icon_twitter.png" alt="" />
+                      <img src="/public/images/icon/icon_mail.png" alt="" />
+                      <img src="/public/images/icon/icon_twitch.png" alt="" />
+                  </div>
+              </div>
+              <div class="flex-1 flex flex-col gap-2">
+                  <p>Copyright Binar 2022</p>
+                  <div class="bg-blue-700 w-24 h-8"></div>
+              </div>
+          </div>
+      </div>
+    </section>
+  </div>
+    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.x.x/dist/alpine.min.js" defer></script>
+  <script type="text/javascript">
+           
+        document.addEventListener("DOMContentLoaded", function () {
+        const buttonCloseSidebar = document.querySelector("#close-sidebar");
+        const buttonOpenSidebar = document.querySelector("#open-sidebar");
+        const sidebar = document.querySelector(".sidebar");
+
+        buttonCloseSidebar.addEventListener("click", function () {
+        sidebar.classList.remove("right-0");
+        sidebar.classList.add("-right-full");
+        });
+        buttonOpenSidebar.addEventListener("click", function () {
+        sidebar.classList.add("right-0");
+        sidebar.classList.remove("-right-full");
+        });
+        });
+
+      
+</script>
+
+</body>
+
 </html>

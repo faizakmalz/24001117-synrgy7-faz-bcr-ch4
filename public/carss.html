@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Binar Car Rental</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link  rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link href="https://fonts.cdnfonts.com/css/helvetica-neue-55" rel="stylesheet"/>
+    <link rel="stylesheet" href="/public/css/style.example.css" />
+  </head>
+  <body>
+    <nav
+      class="h-8 py-12 w-full flex items-center px-4 md:px-[136px] bg-[#F1F3FF] z-50 fixed"
+    >
+      <div class="flex justify-between flex-1">
+        <div class="h-8 w-[100px] bg-[#0D28A6]"></div>
+        <div class="hidden md:flex items-center">
+          <a href="#our-service" class="text-[14px] font-normal"
+            >Our Services</a
+          >
+          <a href="#why-us" class="text-[14px] font-normal ml-4">Why Us</a>
+          <a href="#testimonials" class="text-[14px] font-normal ml-4"
+            >Testimonial</a
+          >
+          <a href="#FAQ" class="text-[14px] font-normal ml-4">FAQ</a>
+          <a
+            href="#"
+            class="text-[14px] font-bold ml-4 bg-[#5CB85F] text-white rounded-md flex items-center justify-center px-3 py-2"
+            >Register</a
+          >
+        </div>
+        <div
+          class="flex duration-500 -right-full top-0 flex-col fixed bg-slate-100 px-4 py-8 gap-4 h-screen w-2/4 sidebar"
+        >
+          <button class="flex md:hidden w-6 h-6" id="close-sidebar">
+            <img
+              src="./public/images/icon/ic_burger.svg"
+              alt="ic_burger"
+              class="w-6 h-6"
+            />
+          </button>
+          <a href="#our-service" class="text-[14px] font-normal"
+            >Our Services</a
+          >
+          <a href="#why-us" class="text-[14px] font-normal">Why Us</a>
+          <a href="#testimonials" class="text-[14px] font-normal"
+            >Testimonial</a
+          >
+          <a href="#FAQ" class="text-[14px] font-normal">FAQ</a>
+          <a
+            href="#"
+            class="text-[14px] font-bold bg-success text-white rounded-md flex items-center justify-center px-3 py-2"
+            >Register</a
+          >
+        </div>
+        <button class="flex md:hidden" id="open-sidebar">
+          <img
+            src="./public/images/icon/ic_burger.svg"
+            alt="ic_burger"
+            class="w-6 h-6"
+          />
+        </button>
+      </div>
+    </nav>
+
+    <section id="hero" class="relative flex flex-col-reverse">
+      <div
+        class="relative md:absolute w-full -bottom-10 z-40 flex justify-center items-center"
+      >
+        <div
+          class="bg-white shadow-md rounded-0 md:rounded-lg flex w-full md:w-3/4 flex-col md:flex-row gap-8 p-4"
+        >
+          <div class="flex flex-col justify-between w-full gap-2 text-xs">
+            <p class="text-slate-700">Tipe Driver</p>
+            <select
+              onchange="onInputChange()"
+              class="w-full border text-slate-400 border-slate-300 rounded-sm h-9 px-2"
+              name="driver"
+              id="driver"
+            >
+              <option class="h-9 hover:bg-green-100" value="">
+                Pilih Tipe Driver
+              </option>
+              <option class="h-9 hover:bg-green-100" value="Dengan Supir">
+                Dengan Supir
+              </option>
+              <option class="h-9 hover:bg-green-100" value="Lepas Kunci">
+                Tanpa Supir (Lepas Kunci)
+              </option>
+            </select>
+            <!-- </div> -->
+          </div>
+          <div class="flex flex-col justify-between w-full gap-2 text-xs">
+            <p class="text-slate-700">Tanggal</p>
+            <input
+              onchange="onInputChange()"
+              type="date"
+              class="w-full border text-slate-400 border-slate-300 rounded-sm h-9 px-2"
+              name="date"
+              id="date"
+            />
+          </div>
+          <div class="flex flex-col justify-between w-full gap-2 text-xs">
+            <p class="text-slate-700">Waktu Jemput/Ambil</p>
+            <select
+              onchange="onInputChange()"
+              class="w-full border text-slate-400 border-slate-300 rounded-sm h-9 px-2"
+              name="time"
+              id="time"
+            >
+              <option class="h-9 w-full hover:bg-green-100" value="8">
+                <div class="flex w-full flex-row justify-between">
+                  <p>08.00</p>
+                  <p>WIB</p>
+                </div>
+              </option>
+              <option class="h-9 w-full hover:bg-green-100" value="9">
+                <div class="flex w-full flex-row justify-between">
+                  <p>09.00</p>
+                  <p>WIB</p>
+                </div>
+              </option>
+              <option class="h-9 w-full hover:bg-green-100" value="10">
+                <div class="flex w-full flex-row justify-between">
+                  <p>10.00</p>
+                  <p>WIB</p>
+                </div>
+              </option>
+              <option class="h-9 w-full hover:bg-green-100" value="11">
+                <div class="flex w-full flex-row justify-between">
+                  <p>11.00</p>
+                  <p>WIB</p>
+                </div>
+              </option>
+            </select>
+          </div>
+          <div class="flex flex-col justify-between w-full gap-2 text-xs">
+            <p class="text-slate-700">Jumlah Penumpang (optional)</p>
+            <input
+              type="text"
+              placeholder="Jumlah Penumpang"
+              class="w-full border text-slate-400 border-slate-300 rounded-sm h-9 px-2"
+              name="capacity"
+              id="capacity"
+            />
+          </div>
+          <div class="flex flex-col gap-2 justify-end">
+            <button
+              id="button-search"
+              onclick="search()"
+              class="bg-success h-9 w-max px-4 text-white rounded-md"
+            >
+              Cari Mobil
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        id="hero"
+        class="h-max md:h-[504px] bg-[#F1F3FF] flex flex-col md:flex-row pl-4 pr-0 md:pr-4 md:pr-0 md:pl-[136px] pt-[84px]"
+      >
+        <div
+          id="main"
+          class="flex flex-col w-full md:w-1/2 justify-center gap-4"
+        >
+          <p class="font-bold text-[36px]">
+            Sewa & Rental Mobil Terbaik di <br> Sidoarjo!
+          </p>
+          <p class="mr-8">
+            Selamat datang di Binar Car Rental. Kami menyediakan mobil kualitas
+            terbaik dengan harga terjangkau. Selalu siap melayani kebutuhanmu
+            untuk sewa mobil selama 24 jam.
+          </p>
+          <a
+            href="/cars"
+            class="text-[14px] font-bold bg-success text-white rounded-md w-max flex items-center justify-center px-3 py-2"
+            >Mulai Sewa Mobil</a
+          >
+        </div>
+        <div class="md:relative w-full md:w-1/2">
+          <img
+            src="./public/images/img_car2.png"
+            alt="mercedes"
+            class="flex md:hidden bottom-0 z-10"
+          />
+          <img
+            src="./public/images/img_car.png"
+            alt="mercedes"
+            class="hidden md:flex absolute bottom-0 z-10"
+          />
+          <div
+            class="bg-[#0D28A6] hidden md:flex absolute h-1/2 w-full rounded-tl-[60px] bottom-0"
+          ></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cars" class="w-full pt-16 flex justify-center">
+      <div
+        class="grid items-stretch w-full px-4 md:px-0 md:w-3/4 text-sm grid-cols-1 md:grid-cols-3 gap-4"
+      ></div>
+    </section>
+
+    <section
+      id="Footer"
+      class="max-w-6xl mx-auto w-full flex flex-col px-4 md:px-0 md:flex-row gap-4 md:gap-[86px] pt-[60px] md:pt-[150px] mb-[100px]"
+    >
+      <div class="flex flex-col font-light text-sm gap-4">
+        <p>Jalan Tunjungan Sidoarjo 672000</p>
+        <p>binarcarrental@binar.com</p>
+        <p>0810000008</p>
+      </div>
+      <div class="flex flex-col font-normal text-sm gap-4">
+        <p class="font-[300]">Our services</p>
+        <p class="font-[300]">Why Us</p>
+        <p class="font-[300]">Testimonial</p>
+        <p class="font-[300]">FAQ</p>
+      </div>
+      <div class="flex flex-col font-light text-sm gap-4">
+        <p>Connect with us</p>
+        <div class="flex flex-row gap-4">
+          <a href="#">
+            <img src="./public/images/icon/icon_facebook.svg" alt="icon_facebook" />
+          </a>
+          <a href="#">
+            <img
+              src="./public/images/icon/icon_instagram.svg"
+              alt="icon_instagram"
+            />
+          </a>
+          <a href="#">
+            <img src="./public/images/icon/icon_twitter.svg" alt="icon_twitter" />
+          </a>
+          <a href="#">
+            <img src="./public/images/icon/icon_mail.svg" alt="icon_mail" />
+          </a>
+          <a href="#">
+            <img src="./public/images/icon/icon_twitch.svg" alt="icon_twitch" />
+          </a>
+        </div>
+      </div>
+      <div class="flex flex-col font-light text-sm gap-4">
+        <p>Copyright Binar 2022</p>
+        <div class="flex flex-row bg-[#0D28A6] w-[100px] h-[34px]"></div>
+      </div>
+    </section>
+
+    <script src="./public/scripts/binar.js"></script>
+    <script src="./public/scripts/component.js"></script>
+    <script src="./public/scripts/car.js"></script>
+    <script src="./public/scripts/main.example.js"></script>
+    <script type="text/javascript">
+            
+      document.addEventListener("DOMContentLoaded", function () {
+      const buttonCloseSidebar = document.querySelector("#close-sidebar");
+      const buttonOpenSidebar = document.querySelector("#open-sidebar");
+      const sidebar = document.querySelector(".sidebar");
+
+      buttonCloseSidebar.addEventListener("click", function () {
+          sidebar.classList.remove("right-0");
+          sidebar.classList.add("-right-full");
+      });
+      buttonOpenSidebar.addEventListener("click", function () {
+          sidebar.classList.add("right-0");
+          sidebar.classList.remove("-right-full");
+      });
+      });
+
+    </script>
+  </body>
+</html>
